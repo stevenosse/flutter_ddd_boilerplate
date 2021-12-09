@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_boilerplate/src/config/routes/app_routes.dart';
-import 'package:flutter_boilerplate/src/config/themes/app_theme.dart';
-import 'package:flutter_boilerplate/src/injector.dart' as i;
+import './src/config/routes/i_route.dart';
+import './src/config/routes/i_router.dart';
+import './src/config/themes/app_theme.dart';
+import './src/injector.dart' as i;
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 void main(List<String> args) async {
@@ -10,7 +11,7 @@ void main(List<String> args) async {
 
   await dotenv.load(fileName: ".env");
   await i.initializeDependencies();
-  
+
   runApp(const App());
 }
 
@@ -22,7 +23,8 @@ class App extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: dotenv.env["APPNAME"] ?? "",
-      onGenerateRoute: AppRoutes.onGenerateRoutes,
+      onGenerateRoute: IRoute.onGenerateRoutes,
+      navigatorKey: IRouter.navigatorKey,
       theme: AppTheme.light,
     );
   }

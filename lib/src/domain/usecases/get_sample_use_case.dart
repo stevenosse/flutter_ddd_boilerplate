@@ -1,5 +1,4 @@
-import 'package:flutter_boilerplate/src/core/params/sample_request.dart';
-
+import '../../core/requests/sample_request.dart';
 import '../../core/resources/data_state.dart';
 import '../../core/usecase/usecase.dart';
 import '../entities/sample_entity.dart';

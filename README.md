@@ -4,3 +4,4 @@
 - Complete setup
 - Add Riverpod integration
 - Add documentation
+- Document router
