@@ -3,5 +3,5 @@
 ## TODO
 - Complete setup
 - Add Riverpod integration
-- Add documentation
 - Document router
+- Add documentation
