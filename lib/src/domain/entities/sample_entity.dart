@@ -1,10 +1,10 @@
 import 'package:equatable/equatable.dart';
 
-class SampleModel extends Equatable {
+class SampleEntity extends Equatable {
   final String id;
   final String name;
 
-  const SampleModel({
+  const SampleEntity({
     required this.id,
     required this.name,
   });

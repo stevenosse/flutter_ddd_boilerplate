@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_boilerplate/src/presentation/views/home/home_screen.dart';
-import 'package:flutter_boilerplate/src/presentation/views/settings/settings_screen.dart';
+import '/src/presentation/views/home/home_screen.dart';
+import '/src/presentation/views/settings/settings_screen.dart';
 
 class IRoute {
   static const String root = "/";
@@ -13,7 +13,7 @@ class IRoute {
       case settingsRoute:
         return _materialRoute(const SettingsScreen());
       default:
-        return _materialRoute(const SizedBox()); // TODO: return view not found
+        return _materialRoute(const SizedBox());
     }
   }
 

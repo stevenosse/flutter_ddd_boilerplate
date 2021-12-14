@@ -1,3 +1,5 @@
+import '/src/core/resources/types.dart';
+
 abstract class IRequest {
-  Map<String, dynamic> toJson();
+  Json toJson();
 }

@@ -1,6 +1,6 @@
-import 'package:flutter_boilerplate/src/data/datasources/remote/i_http_client.dart';
+import '/src/data/datasources/remote/i_http_client.dart';
 
-abstract class NetworkDataSource<T extends IHttpClient> {
+abstract class HttpDataSource<T extends IHttpClient> {
   final T client;
-  NetworkDataSource(this.client);
+  HttpDataSource(this.client);
 }

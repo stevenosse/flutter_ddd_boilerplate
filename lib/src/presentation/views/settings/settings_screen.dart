@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_boilerplate/src/config/routes/i_router.dart';
+
+import '/src/config/routes/i_router.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({Key? key}) : super(key: key);
@@ -14,11 +15,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     return Scaffold(
       body: SafeArea(
         child: Column(
-          children: const [
-            Text("Settings page"),
-            SizedBox(height: 20),
-            ElevatedButton(onPressed: IRouter.back, child: Text("Go back home"))
-          ],
+          children: const [Text("Settings page"), SizedBox(height: 20), ElevatedButton(onPressed: IRouter.back, child: Text("Go back home"))],
         ),
       ),
     );

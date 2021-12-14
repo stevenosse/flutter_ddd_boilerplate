@@ -1,15 +1,19 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 import './src/injector.dart' as i;
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 import './src/core/app.dart';
+import '/src/data/datasources/local/local_storage.dart';
 
+// TODO: Change app name in manifest
+// TODO: Change app name in runner
+// TODO: change app name in core/app.dart
 void main(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  await dotenv.load(fileName: ".env");
   await i.initializeDependencies();
+
+  await i.injector<LocalStorage>().init();
 
   runApp(const App());
 }
