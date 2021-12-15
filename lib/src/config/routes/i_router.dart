@@ -1,20 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-typedef RouteArgument = Map<String, dynamic>;
+import '/src/core/resources/types.dart';
 
 /// Class responsable for doing the navigation
 class IRouter {
   /// The navigatorKey, this is a required one. Use the default or set your own key
   static late GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
-  
+
   static BuildContext get context => getKey().currentContext!;
 
-  static RouteArgument? _arguments;
+  static Json? _arguments;
 
-  static RouteArgument? get args => _arguments;
+  static Json? get args => _arguments;
 
-  static set arguments(RouteArgument? args) {
+  static set arguments(Json? args) {
     _arguments = args;
   }
 
@@ -29,8 +28,10 @@ class IRouter {
   }
 
   /// Forward navigation, it's similar to `Navigator.of(context).push`
-  static Future<T?> to<T>(String name, {bool replace = false, RouteArgument? args}) async {
-    if (!replace) return await navigatorKey.currentState!.pushNamed(name, arguments: args);
+  static Future<T?> to<T>(String name, {bool replace = false, Json? args}) async {
+    if (!replace) {
+      return await navigatorKey.currentState!.pushNamed(name, arguments: args);
+    }
     return await navigatorKey.currentState!.pushReplacementNamed(name, arguments: args);
   }
 

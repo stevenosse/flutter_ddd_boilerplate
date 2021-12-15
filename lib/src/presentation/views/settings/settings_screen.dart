@@ -15,7 +15,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
     return Scaffold(
       body: SafeArea(
         child: Column(
-          children: const [Text("Settings page"), SizedBox(height: 20), ElevatedButton(onPressed: IRouter.back, child: Text("Go back home"))],
+          children: const [
+            Text("Settings page"),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: IRouter.back,
+              child: Text("Go back home"),
+            ),
+          ],
         ),
       ),
     );

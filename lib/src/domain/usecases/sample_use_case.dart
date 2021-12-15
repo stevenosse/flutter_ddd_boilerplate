@@ -1,16 +1,18 @@
-import '../../core/requests/sample_request.dart';
-import '../../core/resources/data_state.dart';
-import '../../core/usecase/usecase.dart';
+import 'package:dartz/dartz.dart';
+import '/src/core/exceptions/request_exception.dart';
+
+import '/src/core/requests/sample_request.dart';
+import '/src/core/usecase/usecase.dart';
 import '/src/data/models/sample_model.dart';
 import '../repositories/sample_repository.dart';
 
-class SampleUseCase implements UseCase<DataState<SampleModel>, SampleRequest> {
+class SampleUseCase implements UseCase<Either<SampleModel, RequestException>, SampleRequest> {
   final SampleRepository _sampleRepository;
 
   SampleUseCase(this._sampleRepository);
 
   @override
-  Future<DataState<SampleModel>> call({required SampleRequest params}) {
+  Future<Either<SampleModel, RequestException>> call({required SampleRequest params}) {
     return _sampleRepository.getSampleModels(params);
   }
 }

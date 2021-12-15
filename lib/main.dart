@@ -8,6 +8,7 @@ import '/src/data/datasources/local/local_storage.dart';
 // TODO: Change app name in manifest
 // TODO: Change app name in runner
 // TODO: change app name in core/app.dart
+// TODO: change bundle id
 void main(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();
 

@@ -1,4 +1,8 @@
+import 'package:binder/binder.dart';
 import 'package:flutter/material.dart';
+
+import '/src/presentation/state/sample_state.dart';
+import '/src/presentation/views/home/home_view_logic_ref.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -14,12 +18,28 @@ class _HomeScreenState extends State<HomeScreen> {
       body: SafeArea(
         child: SizedBox(
           width: MediaQuery.of(context).size.width,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-              Text("Hello World"),
-            ],
+          child: LogicLoader(
+            refs: [homeViewLogicRef],
+            builder: (context, loading, child) {
+              if (loading) {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+              final data = context.watch(sampleStateRef);
+
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  data.fold((model) {
+                    return Text(model!.name);
+                  }, (r) {
+                    return const Text("Failed to load Api data");
+                  }),
+                ],
+              );
+            },
           ),
         ),
       ),
